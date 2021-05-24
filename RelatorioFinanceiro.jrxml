@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioFinanceiro" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b7482a9d-a8cc-4cf9-966e-bca260af5ad5">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Relatorio_Financeiro"/>
+	<parameter name="CpfFuncionario" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM fn_relatorio($P{CpfFuncionario})]]>
+	</queryString>
+	<field name="cpf" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cpf"/>
+		<property name="com.jaspersoft.studio.field.label" value="cpf"/>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+	</field>
+	<field name="natureza_rendimento" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="natureza_rendimento"/>
+		<property name="com.jaspersoft.studio.field.label" value="natureza_rendimento"/>
+	</field>
+	<field name="salario_bruto" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="salario_bruto"/>
+		<property name="com.jaspersoft.studio.field.label" value="salario_bruto"/>
+	</field>
+	<field name="contribuicao" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="contribuicao"/>
+		<property name="com.jaspersoft.studio.field.label" value="contribuicao"/>
+	</field>
+	<field name="imposto" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="imposto"/>
+		<property name="com.jaspersoft.studio.field.label" value="imposto"/>
+	</field>
+	<field name="salario13" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="salario13"/>
+		<property name="com.jaspersoft.studio.field.label" value="salario13"/>
+	</field>
+	<field name="imposto13" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="imposto13"/>
+		<property name="com.jaspersoft.studio.field.label" value="imposto13"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="32" width="478" height="30" uuid="d704f3d3-aca6-49dc-8746-b6ee60122d9a"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Comprovante de Rendimentos pagos e Retenção do imposto de renda na fonte]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="6" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="20" width="48" height="20" uuid="87b643cc-8073-4e33-b54b-57b8dbe24823">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3453bde3-003e-4a62-9e31-f0f5c4a9089f"/>
+				</reportElement>
+				<text><![CDATA[cpf : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="50" height="20" uuid="28d9a0c5-36a0-41af-8797-ba6e1e169c26">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bc75da51-e191-44e1-90e1-080e44dac34f"/>
+				</reportElement>
+				<text><![CDATA[nome :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="20" width="130" height="20" uuid="c568214c-e820-4377-b790-ce7e6b38fce4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4e6480c9-507d-4cc6-90a0-1baded32db2c"/>
+				</reportElement>
+				<text><![CDATA[natureza do rendimento :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="0" width="50" height="18" uuid="26a9f55c-1c68-4cbe-9e97-d99ecd0472f3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bc75da51-e191-44e1-90e1-080e44dac34f"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="20" width="100" height="20" uuid="d9fa2f57-650f-4725-a652-91ff0b361190">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4e6480c9-507d-4cc6-90a0-1baded32db2c"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{natureza_rendimento}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="186" splitType="Stretch">
+			<textField>
+				<reportElement x="380" y="20" width="100" height="20" uuid="51763555-7dac-4248-8630-937faaee87e9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9682f330-2f8f-4197-8572-edbe89d68d0d"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{salario_bruto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="40" width="100" height="20" uuid="af06483d-0d72-469e-bc3f-098af42d390f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="80004a15-952c-4c6a-9123-31b78c76d595"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{contribuicao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="60" width="100" height="20" uuid="8f28d262-31b1-479d-8947-5eed2a1256c4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5e77538a-1424-49cd-9fb5-a32fabf9a89f"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{imposto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="40" width="378" height="20" uuid="7e6757d9-beb8-4d70-ba28-8c8469b1c0d2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="80004a15-952c-4c6a-9123-31b78c76d595"/>
+				</reportElement>
+				<text><![CDATA[1.2 Contribuição à previdência]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="20" width="378" height="20" uuid="2766fb9f-5994-4b1f-a56b-4d97a529941a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9682f330-2f8f-4197-8572-edbe89d68d0d"/>
+				</reportElement>
+				<text><![CDATA[1.1 Rendimentos Brutos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="378" height="20" uuid="9afca963-5d1e-44b8-a166-b5075abea2e9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5e77538a-1424-49cd-9fb5-a32fabf9a89f"/>
+				</reportElement>
+				<text><![CDATA[1.4 Imposto retido na fonte]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="410" height="20" uuid="9637cfc4-7875-4249-bf60-e0544b0de6d9"/>
+				<text><![CDATA[Quadro 1 - Rendimentos Tributáveis, Deduções e imposto retido na fonte]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="380" y="100" width="100" height="20" uuid="7e3df3f8-10d3-4923-875f-abf0282a9f9a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5373d0cb-0655-42ec-a334-8166e2586546"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{salario13}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="100" width="378" height="20" uuid="787d1636-a4ff-4ad2-a524-6b6299405f2b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5373d0cb-0655-42ec-a334-8166e2586546"/>
+				</reportElement>
+				<text><![CDATA[3.1 Décimo terceiro Salário]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="80" width="450" height="20" uuid="9aea149b-8af0-452d-9dfd-acbb1dfc4237"/>
+				<text><![CDATA[Quadro 3 - Rendimentos sujeitos à Tributação exclusiva]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="380" y="120" width="100" height="20" uuid="f512a480-bd13-4c14-a4c1-91fd63bd448c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6fbdddee-6621-4066-a113-4a9bdb75a680"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{imposto13}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="120" width="378" height="20" uuid="2c2d6ff2-14e6-4e5b-9e2d-30682385930c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6fbdddee-6621-4066-a113-4a9bdb75a680"/>
+				</reportElement>
+				<text><![CDATA[3.2 Imposto sobre a renda retido na fonte sobre o 13º salário]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="49" y="-20" width="100" height="20" uuid="9210091f-0916-461e-9cfd-ed556fee7695"/>
+				<textFieldExpression><![CDATA[$P{CpfFuncionario}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="53" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
